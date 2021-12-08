@@ -1,17 +1,54 @@
 <!DOCTYPE html>
-<html lang="">
-  <head>
+<html lang="ja">
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title><%= htmlWebpackPlugin.options.title %></title>
-  </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://0bjekt.co/2021/sphere/">
+    <meta property="og:title" content="Sphere | 2021">
+    <meta property="og:image" content="https://0bjekt.co/img/sphere.png">
+    <meta property="og:description" content="A sphere composed of 3D random lines">
+    <meta property="og:site_name" content="0bjekt.co">
+    <meta property="fb:app_id" content="195749126081741">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="">
+    <meta name="twitter:creator" content="">
+    <meta name="twitter:domain" content="0bjekt.co">
+
+    <link rel="icon" href="/favicon.ico">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/vnd.microsoft.icon">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="/android-chrome-192x192.png">
+
+    <title>Sphere | 2021 | 0bjekt.co</title>
+
+    <!-- Navigation -->
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/return-to-top.css">
+    <script type="text/javascript" src="./js/ua.js" defer></script>
+    <script src="./js/return-to-top.js?type=dark"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XZ8JV8PBC9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XZ8JV8PBC9');
+    </script>
+</head>
+<body>
+<noscript>
+    <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled.
+        Please enable it to continue.</strong>
+</noscript>
+<div id="app"></div>
+<!-- built files will be auto injected -->
+</body>
 </html>
