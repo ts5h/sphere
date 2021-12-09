@@ -1,12 +1,52 @@
 <template>
-
+  <div
+    @mouseover="hoverHandler(true)"
+    @mouseout="hoverHandler(false)"
+    @touchstart="touchHandler(true)"
+    @touchend="touchHandler(false)"
+    :class="['github', theme, status.hover ? 'on' : '']"
+  >
+    <a :href="url" target="_blank" title="GitHub">GitHub</a>
+  </div>
 </template>
 
 <script lang="ts">
+import { reactive } from "vue";
 import isMobile from "ismobilejs";
+
+type setupType = {
+  status: { hover: boolean };
+  hoverHandler: (state: boolean) => void;
+  touchHandler: (state: boolean) => void;
+};
 
 export default {
   name: "GitHub",
+  props: {
+    theme: String,
+    url: String,
+  },
+  setup(): setupType {
+    const status = reactive<{ hover: boolean }>({
+      hover: false,
+    });
+
+    const hoverHandler = (state: boolean) => {
+      if (isMobile().any) return;
+      status.hover = state;
+    };
+
+    const touchHandler = (state: boolean) => {
+      if (!isMobile().any) return;
+      status.hover = state;
+    };
+
+    return {
+      status,
+      hoverHandler,
+      touchHandler,
+    };
+  },
 };
 </script>
 
@@ -42,7 +82,8 @@ export default {
 .github {
   &.light {
     a {
-
+      background: #444;
+      mask: url(/img/icon_github.svg) no-repeat center center / 16px auto;
     }
   }
 }

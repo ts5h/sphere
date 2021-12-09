@@ -1,5 +1,6 @@
 <template>
   <ReturnToTop theme="light" />
+  <GitHub theme="light" url="https://github.com/ts5h/sphere" />
   <Sphere />
 </template>
 
@@ -10,10 +11,12 @@ import ReturnToTop from "@/components/ReturnToTop.vue";
 
 // https://stackoverflow.com/questions/64213461/vuejs-typescript-cannot-find-module-components-navigation-or-its-correspon
 import Sphere from "@/components/Sphere.vue";
+import GitHub from "@/components/GitHub.vue";
 
 export default defineComponent({
   name: "App",
   components: {
+    GitHub,
     ReturnToTop,
     Sphere,
   },
