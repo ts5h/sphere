@@ -16,15 +16,12 @@ export default {
   setup(): void {
     const eventName =
       typeof document.ontouchend !== "undefined" ? "touchend" : "mouseup";
-
     let audioCtx: AudioContext;
-    // let audioFrameCount = 0;
-    // let audioArrBuf = null;
-    // const audioChannels = 2;
 
     try {
+      window.AudioContext =
+        window.AudioContext || (window as any).webkitAudioContext;
       audioCtx = new AudioContext();
-      // audioFrameCount = audioCtx.sampleRate * 10.0;
     } catch (e) {
       console.log(e);
     }
@@ -67,9 +64,7 @@ export default {
         const gain1 = audioCtx.createGain();
         gain1.gain.value = 0.25;
 
-        osc1.connect(gain1);
-        gain1.connect(audioCtx.destination);
-
+        osc1.connect(gain1).connect(audioCtx.destination);
         osc1.start(audioCtx.currentTime);
         osc1.stop(audioCtx.currentTime + 0.1);
 
@@ -82,14 +77,11 @@ export default {
         const gain2 = audioCtx.createGain();
         gain2.gain.value = 0.55;
 
-        osc2.connect(gain2);
-        gain2.connect(audioCtx.destination);
-
+        osc2.connect(gain2).connect(audioCtx.destination);
         osc2.start(audioCtx.currentTime);
         osc2.stop(audioCtx.currentTime + 0.1);
       }
     };
-
 
     // Draw lines
     const updatePositions = () => {
@@ -163,12 +155,14 @@ export default {
     // Audio
     const initAudioContext = () => {
       document.removeEventListener(eventName, initAudioContext);
+      audioCtx.resume();
     };
 
     document.addEventListener(eventName, initAudioContext);
 
     /* Hooks */
     onMounted(() => {
+      const canvasElement = document.querySelector("#sphere") as HTMLCanvasElement;
       cs = new Canvas("sphere");
       window.addEventListener("resize", handleResize);
 
@@ -177,7 +171,7 @@ export default {
       wh = cs.getWindowHeight();
 
       renderer = new THREE.WebGLRenderer({
-        canvas: document.querySelector("#sphere") as HTMLCanvasElement,
+        canvas: canvasElement,
         antialias: true,
       });
       renderer.setPixelRatio(window.devicePixelRatio);
