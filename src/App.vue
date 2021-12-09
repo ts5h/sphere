@@ -32,6 +32,7 @@ body {
 }
 
 #app {
+  position: relative;
   margin: 0;
   padding: 0;
   width: 100%;
