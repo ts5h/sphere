@@ -1,16 +1,44 @@
 <template>
-  <div class="return-to-top">
+  <div
+    @mouseover="hoverHandler(true)"
+    @mouseout="hoverHandler(false)"
+    @touchstart="touchHandler(true)"
+    @touchend="touchHandler(false)"
+    :class="['return-to-top', theme, status.hover ? 'on' : '']"
+  >
     <a href="/">Back</a>
   </div>
 </template>
 
 <script lang="ts">
+import { reactive } from "vue";
 import isMobile from "ismobilejs";
 
 export default {
   name: "ReturnToTop",
-  setup(): void {
-    //
+  props: {
+    theme: String,
+  },
+  setup() {
+    const status = reactive<{ hover: boolean }>({
+      hover: false,
+    });
+
+    const hoverHandler = (state: boolean) => {
+      if (isMobile().any) return;
+      status.hover = state;
+    };
+
+    const touchHandler = (state: boolean) => {
+      if (!isMobile().any) return;
+      status.hover = state;
+    };
+
+    return {
+      status,
+      hoverHandler,
+      touchHandler,
+    };
   },
 };
 </script>

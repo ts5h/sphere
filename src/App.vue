@@ -1,5 +1,5 @@
 <template>
-  <ReturnToTop />
+  <ReturnToTop theme="light" />
   <Sphere />
 </template>
 
