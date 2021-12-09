@@ -20,6 +20,7 @@ export default {
 
     try {
       window.AudioContext =
+        // eslint-disable-next-line
         window.AudioContext || (window as any).webkitAudioContext;
       audioCtx = new AudioContext();
     } catch (e) {
@@ -162,7 +163,9 @@ export default {
 
     /* Hooks */
     onMounted(() => {
-      const canvasElement = document.querySelector("#sphere") as HTMLCanvasElement;
+      const canvasElement = document.querySelector(
+        "#sphere"
+      ) as HTMLCanvasElement;
       cs = new Canvas("sphere");
       window.addEventListener("resize", handleResize);
 
