@@ -1,0 +1,62 @@
+<template>
+
+</template>
+
+<script lang="ts">
+import isMobile from "ismobilejs";
+
+export default {
+  name: "GitHub",
+};
+</script>
+
+<style scoped lang="scss">
+@use "../scss/config/variables";
+
+.github {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  position: fixed;
+  right: 0;
+  top: 0;
+
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+
+  &.on {
+    opacity: 1;
+  }
+
+  a {
+    display: block;
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+
+    background: url(/img/icon_github.svg) no-repeat center center / 16px auto;
+    text-indent: -9999px;
+    text-decoration: none;
+  }
+}
+
+// Light
+.github {
+  &.light {
+    a {
+
+    }
+  }
+}
+
+@media screen and (max-width: variables.$break-point) {
+  .github {
+    opacity: 0.5;
+    transition: none;
+
+    a {
+      background-size: 14px auto;
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+</style>
