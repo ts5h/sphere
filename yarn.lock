@@ -1369,6 +1369,11 @@
   dependencies:
     source-map "^0.6.1"
 
+"@types/webaudioapi@^0.0.27":
+  version "0.0.27"
+  resolved "https://registry.yarnpkg.com/@types/webaudioapi/-/webaudioapi-0.0.27.tgz#8a3f98eaa07cb577be2dae22311d37c3b545f74f"
+  integrity sha1-ij+Y6qB8tXe+La4iMR03w7VF908=
+
 "@types/webpack-dev-server@^3.11.0":
   version "3.11.6"
   resolved "https://registry.npmmirror.com/@types/webpack-dev-server/download/@types/webpack-dev-server-3.11.6.tgz?cache=0&sync_timestamp=1637271021758&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fwebpack-dev-server%2Fdownload%2F%40types%2Fwebpack-dev-server-3.11.6.tgz#d8888cfd2f0630203e13d3ed7833a4d11b8a34dc"
