@@ -14,12 +14,18 @@
 import { reactive } from "vue";
 import isMobile from "ismobilejs";
 
+type setupType = {
+  status: { hover: boolean };
+  hoverHandler: (state: boolean) => void;
+  touchHandler: (state: boolean) => void;
+};
+
 export default {
   name: "ReturnToTop",
   props: {
     theme: String,
   },
-  setup() {
+  setup(): setupType {
     const status = reactive<{ hover: boolean }>({
       hover: false,
     });

@@ -21,6 +21,8 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
+@use "scss/config/variables";
+
 * {
   box-sizing: border-box;
 }
