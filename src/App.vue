@@ -9,15 +9,13 @@ import { defineComponent } from "vue";
 
 import ReturnToHome from "@/components/ReturnToHome.vue";
 import GitHub from "@/components/GitHub.vue";
-
-// https://stackoverflow.com/questions/64213461/vuejs-typescript-cannot-find-module-components-navigation-or-its-correspon
 import Sphere from "@/components/Sphere.vue";
 
 export default defineComponent({
   name: "App",
   components: {
-    GitHub,
     ReturnToHome,
+    GitHub,
     Sphere,
   },
 });
